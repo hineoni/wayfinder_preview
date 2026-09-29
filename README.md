@@ -71,8 +71,6 @@ pnpm dev
 | --- | --- |
 | Сайт проекта | [Wayfinder](https://wayfinder-preview.layero.app/) |
 | Репозиторий | [GitHub](https://github.com/hineoni/wayfinder_preview) |
-| Презентация PDF | [Открыть](#) |
-| Презентация PPTX | [Открыть](#) |
 | Демонстрационное видео | [Смотреть](#) |
 | Презентация HTML | [Открыть](docs/presentation/index.html) |
 

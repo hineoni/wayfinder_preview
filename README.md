@@ -71,8 +71,8 @@ pnpm dev
 | --- | --- |
 | Сайт проекта | [Wayfinder](https://wayfinder-preview.layero.app/) |
 | Репозиторий | [GitHub](https://github.com/hineoni/wayfinder_preview) |
-| Демонстрационное видео | [Смотреть](#) |
-| Презентация HTML | [Открыть](docs/presentation/index.html) |
+| Демонстрационное видео | [Смотреть](https://video.layero.app/) |
+| Презентация HTML | [Открыть](https://presentation.layero.app/#1) |
 
 HTML-презентация открывается в браузере: стрелки переключают слайды, `F` включает полный экран.
 

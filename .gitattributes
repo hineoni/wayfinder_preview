@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Source CSVs are cp1251 with original line endings; never normalize
+datasets/raw/** -text
+
+*.pdf binary
+*.png binary
+*.jpg binary
+*.osm.pbf binary
+*.mp4 binary
+*.webp binary
+*.woff2 binary

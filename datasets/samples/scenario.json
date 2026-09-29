@@ -1,0 +1,265 @@
+{
+  "orders": [
+    {
+      "id": "74198",
+      "address": "Город Москва, пр-кт.Волгоградский, д. 128 к 5",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "20:00",
+        "end": "22:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Кузьминки",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.700846,
+      "lon": 37.7822191
+    },
+    {
+      "id": "86160",
+      "address": "Город Москва, пер.Маяковского, д. 2",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "18:00",
+        "end": "20:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Таганский",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.7397743,
+      "lon": 37.6599082
+    },
+    {
+      "id": "50104",
+      "address": "Город Москва, ул.Грайвороновская, д. 10 к 2",
+      "bkType": "Подключение",
+      "hdType": "Заявка на подключение",
+      "window": {
+        "start": "18:00",
+        "end": "20:00"
+      },
+      "durationMin": 90,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Текстильщики",
+      "connection": null,
+      "gigabit": true,
+      "lat": 55.7183547,
+      "lon": 37.7319259
+    },
+    {
+      "id": "46393",
+      "address": "Город Москва, ул.Михайлова, д. 14",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "20:00",
+        "end": "22:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Рязанский",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.7270299,
+      "lon": 37.7659603
+    },
+    {
+      "id": "10135",
+      "address": "Город Москва, ул.3-я Институтская, д. 5 к 2",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "18:00",
+        "end": "20:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Рязанский",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.7219922,
+      "lon": 37.7821899
+    },
+    {
+      "id": "18754",
+      "address": "Город Москва, ул.1-я Новокузьминская, д. 16 к 1",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "18:00",
+        "end": "20:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Рязанский",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.714359,
+      "lon": 37.7897959
+    },
+    {
+      "id": "84627",
+      "address": "Город Москва, ул.Окская, д. 32",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "20:00",
+        "end": "22:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Кузьминки",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.7144711,
+      "lon": 37.7695221
+    },
+    {
+      "id": "61540",
+      "address": "Город Москва, ул.Юных Ленинцев, д. 84",
+      "bkType": "Подключение",
+      "hdType": "Конвергенция абонента",
+      "window": {
+        "start": "16:00",
+        "end": "18:00"
+      },
+      "durationMin": 60,
+      "skill": "connection",
+      "priority": "connection",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 0,
+        "tv-box": 0,
+        "cable-kit": 0
+      },
+      "district": "Кузьминки",
+      "connection": "FMC",
+      "gigabit": false,
+      "lat": 55.6981178,
+      "lon": 37.7786035
+    }
+  ],
+  "engineers": [
+    {
+      "id": "E01",
+      "name": "Бригада Соколов",
+      "shift": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "skills": [
+        "connection",
+        "local",
+        "emergency"
+      ],
+      "transport": "car",
+      "equipment": {
+        "emergency-kit": 3,
+        "router": 4,
+        "tv-box": 3,
+        "cable-kit": 3
+      },
+      "lat": 55.6997977,
+      "lon": 37.7725762,
+      "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+    },
+    {
+      "id": "E02",
+      "name": "Бригада Мельников",
+      "shift": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "skills": [
+        "connection",
+        "local"
+      ],
+      "transport": "car",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 4,
+        "tv-box": 3,
+        "cable-kit": 3
+      },
+      "lat": 55.6997977,
+      "lon": 37.7725762,
+      "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+    },
+    {
+      "id": "E03",
+      "name": "Бригада Матвеев",
+      "shift": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "skills": [
+        "connection",
+        "local"
+      ],
+      "transport": "car",
+      "equipment": {
+        "emergency-kit": 0,
+        "router": 4,
+        "tv-box": 3,
+        "cable-kit": 3
+      },
+      "lat": 55.6997977,
+      "lon": 37.7725762,
+      "address": "г. Москва, ул Юных Ленинцев, д 83с 4"
+    }
+  ]
+}

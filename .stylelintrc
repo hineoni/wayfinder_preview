@@ -1,0 +1,109 @@
+{
+  "extends": [
+    "stylelint-scss",
+    "stylelint-config-standard-scss",
+    "./stylelint-order.config.json",
+    "stylelint-config-html/vue"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "selector-type-case": "lower",
+    "no-unknown-animations": true,
+    "no-empty-source": null,
+    "block-no-empty": null,
+    "selector-max-compound-selectors": [
+      3,
+      {
+        "severity": "warning"
+      }
+    ],
+    "no-duplicate-selectors": true,
+    "shorthand-property-no-redundant-values": true,
+    "alpha-value-notation": "number",
+    "color-function-notation": "modern",
+    "selector-class-pattern": [
+      "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+      {
+        "message": "Class names should match the BEM naming convention",
+        "severity": "warning",
+        "resolveNestedSelectors": true
+      }
+    ],
+    "selector-nested-pattern": [
+      "^(?!.*&-(?!-)).*",
+      {
+        "message": "Avoid using `&-` selectors — use BEM `&__` or `&--` instead."
+      }
+    ],
+    "max-nesting-depth": [
+      3,
+      {
+        "ignore": ["pseudo-classes"],
+        "ignoreAtRules": ["include", "media"]
+      }
+    ],
+    "no-descending-specificity": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "no-invalid-position-at-import-rule": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "scss/at-rule-no-unknown": true,
+    "scss/comment-no-empty": null,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["flex-flow", "place-items"]
+      }
+    ],
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates"]
+      }
+    ],
+    "selector-pseudo-element-colon-notation": "single",
+    "order/order": [
+      [
+        "declarations",
+        {
+          "type": "at-rule",
+          "name": "media"
+        },
+        {
+          "type": "rule",
+          "selector": "^&::(before|after)"
+        },
+        {
+          "type": "rule",
+          "selector": "^&:\\w"
+        },
+        {
+          "type": "rule",
+          "selector": "^."
+        },
+        {
+          "type": "rule",
+          "selector": "^&_"
+        }
+      ],
+      {
+        "severity": "warning"
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep", "slotted"]
+      }
+    ]
+  }
+}

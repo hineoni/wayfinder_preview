@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@wayfinder/planner": ["packages/planner/src/index.ts"],
+      "@wayfinder/planner/*": ["packages/planner/*"],
+      "@wayfinder/dataset": ["packages/dataset/src/index.ts"]
+    },
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  }
+}

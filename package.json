@@ -1,0 +1,43 @@
+{
+  "name": "wayfinder",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "benchmark": "pnpm --filter @wayfinder/prepare run benchmark",
+    "dev": "pnpm --filter @wayfinder/web run dev",
+    "preview": "pnpm --filter @wayfinder/web run preview",
+    "check": "pnpm run typecheck && pnpm run lint && pnpm run format:check && pnpm run test && pnpm run build && pnpm run arch && pnpm run knip",
+    "typecheck": "pnpm -r --workspace-concurrency=1 run typecheck",
+    "lint": "oxlint --type-aware . && eslint \"apps/web/**/*.vue\" && stylelint \"**/*.{scss,vue}\" --allow-empty-input",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "test": "vitest run",
+    "build": "pnpm --filter @wayfinder/web run build",
+    "arch": "depcruise --config .dependency-cruiser.cjs packages tools apps",
+    "knip": "knip",
+    "datasets": "pnpm --filter @wayfinder/prepare run datasets"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@typescript-eslint/parser": "^8.70.0",
+    "dependency-cruiser": "^18.3.1",
+    "eslint": "^10.10.0",
+    "eslint-plugin-vue": "^10.11.0",
+    "knip": "^6.37.0",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "oxlint-tsgolint": "^7.0.2002",
+    "stylelint": "^17.15.0",
+    "stylelint-config-html": "^2.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^8.1.1",
+    "stylelint-scss": "^7.3.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.1"
+  },
+  "engines": {
+    "node": ">=24.4.0",
+    "pnpm": ">=11.15.0"
+  },
+  "packageManager": "pnpm@11.15.0"
+}

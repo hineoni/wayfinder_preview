@@ -1,0 +1,44 @@
+// Общие брейкпоинты и приёмы оформления. Подключается через `@use` в стилях компонентов.
+
+@mixin lg {
+  @media (width <= 1180px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (width <= 1080px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (width <= 640px) {
+    @content;
+  }
+}
+
+@mixin any-hover {
+  @media (any-hover: hover) {
+    &:hover:not(:disabled, [data-disabled]) {
+      @content;
+    }
+  }
+}
+
+/** Стеклянная поверхность для плавающих элементов: шапка, поповеры, панели на карте. */
+@mixin glass {
+  background: var(--color-glass);
+  backdrop-filter: var(--blur);
+}
+
+@mixin caption {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+@mixin numeric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}

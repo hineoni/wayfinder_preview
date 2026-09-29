@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="490" viewBox="0 0 1040 490" role="img" aria-labelledby="title desc">
+<title id="title">Как сохраняется согласованное время</title><desc id="desc">Приложение проверяет подтверждённое время клиента при пересчёте. Без конфликта применяется новый план. При конфликте прежний план сохраняется, а повторный расчёт требует разрешения диспетчера на пересогласование.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a97ab"/></marker></defs>
+<rect width="1040" height="490" rx="18" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+<text x="28" y="42" font-size="26" fill="#172033" font-weight="700" text-anchor="start">Кто решает, можно ли сдвинуть визит клиента</text>
+<rect x="28" y="80" width="290" height="112" rx="12" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="48" y="114" font-size="22" fill="#2d62b6" font-weight="700" text-anchor="start">Диспетчер</text>
+<text x="48" y="146" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Вводит событие.</text>
+<text x="48" y="174" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Отмечает выполненное.</text>
+<path d="M 318 136 L 366 136" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="370" y="80" width="642" height="112" rx="12" fill="#f3efff" stroke="#7552b3" stroke-width="1.5"/>
+<text x="390" y="114" font-size="22" fill="#7552b3" font-weight="700" text-anchor="start">Приложение</text>
+<text x="390" y="146" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Пересчитывает остаток дня и проверяет,</text>
+<text x="390" y="174" font-size="20" fill="#526079" font-weight="400" text-anchor="start">сохранено ли подтверждённое время клиентов.</text>
+<line x1="690" y1="192" x2="690" y2="218" stroke="#8a97ab" stroke-width="1.5"/>
+<line x1="272" y1="218" x2="782" y2="218" stroke="#8a97ab" stroke-width="1.5"/>
+<path d="M 272 218 L 272 250" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 782 218 L 782 250" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="290" y="242" font-size="19" fill="#29804f" font-weight="700" text-anchor="start">Время сохранено</text>
+<text x="800" y="242" font-size="19" fill="#ba493e" font-weight="700" text-anchor="start">Есть конфликт</text>
+<rect x="28" y="256" width="474" height="106" rx="12" fill="#edf8f1" stroke="#29804f" stroke-width="1.5"/>
+<text x="48" y="290" font-size="22" fill="#29804f" font-weight="700" text-anchor="start">Новый план применяется</text>
+<text x="48" y="322" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Изменения визитов попадают</text>
+<text x="48" y="350" font-size="20" fill="#526079" font-weight="400" text-anchor="start">в очередь уведомлений для поддержки.</text>
+<rect x="538" y="256" width="474" height="106" rx="12" fill="#fff1ef" stroke="#ba493e" stroke-width="1.5"/>
+<text x="558" y="290" font-size="22" fill="#ba493e" font-weight="700" text-anchor="start">Прежний план сохраняется</text>
+<text x="558" y="322" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Приложение показывает конфликт.</text>
+<text x="558" y="350" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Время не меняется автоматически.</text>
+<path d="M 776 362 L 776 390" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="538" y="396" width="474" height="70" rx="12" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="558" y="422" font-size="22" fill="#2d62b6" font-weight="700" text-anchor="start">Разрешить пересогласование</text>
+<text x="558" y="450" font-size="19" fill="#526079" font-weight="400" text-anchor="start">Диспетчер → повторный расчёт и проверка.</text>
+<text x="28" y="411" font-size="20" fill="#526079" font-weight="400" text-anchor="start">С клиентом связывается диспетчер.</text>
+<text x="28" y="439" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Автоматической отправки сообщений нет.</text>
+</g>
+</svg>

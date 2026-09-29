@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="470" viewBox="0 0 1040 470" role="img" aria-labelledby="title desc">
+<title id="title">Проверка бригады для заявки</title><desc id="desc">Квалификация и транспорт, остаток оборудования и время маршрута проверяются совместно. При нарушении условий ищется другой вариант; допустимый вариант сравнивается с другими.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a97ab"/></marker></defs>
+<rect width="1040" height="470" rx="18" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+<text x="28" y="42" font-size="26" fill="#172033" font-weight="700" text-anchor="start">Подходит ли бригада для этой заявки?</text>
+<text x="28" y="76" font-size="21" fill="#526079" font-weight="400" text-anchor="start">Нужно выполнить все три условия — одного близкого адреса недостаточно.</text>
+<rect x="28" y="106" width="312" height="146" rx="12" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="48" y="140" font-size="22" fill="#2d62b6" font-weight="700" text-anchor="start">1. Навыки и транспорт</text>
+<text x="48" y="172" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Есть нужная квалификация.</text>
+<text x="48" y="200" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Транспорт соответствует</text>
+<text x="48" y="228" font-size="20" fill="#526079" font-weight="400" text-anchor="start">требованиям работы.</text>
+<rect x="364" y="106" width="312" height="146" rx="12" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="384" y="140" font-size="22" fill="#2d62b6" font-weight="700" text-anchor="start">2. Оборудование</text>
+<text x="384" y="172" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Хватает комплекта</text>
+<text x="384" y="200" font-size="20" fill="#526079" font-weight="400" text-anchor="start">с учётом уже назначенных</text>
+<text x="384" y="228" font-size="20" fill="#526079" font-weight="400" text-anchor="start">работ в этом маршруте.</text>
+<rect x="700" y="106" width="312" height="146" rx="12" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="720" y="140" font-size="22" fill="#2d62b6" font-weight="700" text-anchor="start">3. Время</text>
+<text x="720" y="172" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Переезды и работа</text>
+<text x="720" y="200" font-size="20" fill="#526079" font-weight="400" text-anchor="start">укладываются в окно</text>
+<text x="720" y="228" font-size="20" fill="#526079" font-weight="400" text-anchor="start">клиента и смену бригады.</text>
+<line x1="184" y1="252" x2="184" y2="278" stroke="#8a97ab" stroke-width="1.5"/>
+<line x1="520" y1="252" x2="520" y2="278" stroke="#8a97ab" stroke-width="1.5"/>
+<line x1="856" y1="252" x2="856" y2="278" stroke="#8a97ab" stroke-width="1.5"/>
+<line x1="184" y1="278" x2="856" y2="278" stroke="#8a97ab" stroke-width="1.5"/>
+<path d="M 520 278 L 520 304" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="360" y="306" width="320" height="44" rx="12" fill="#f3f5f8" stroke="#67768b" stroke-width="1.5"/>
+<text x="520" y="334" font-size="21" fill="#172033" font-weight="700" text-anchor="middle">Результат проверки</text>
+<path d="M 360 328 L 184 328 L 184 366" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="184" y="320" font-size="18" fill="#29804f" font-weight="400" text-anchor="middle">Все условия выполнены</text>
+<path d="M 680 328 L 856 328 L 856 366" fill="none" stroke="#8a97ab" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="856" y="320" font-size="18" fill="#ba493e" font-weight="400" text-anchor="middle">Есть нарушение</text>
+<rect x="28" y="370" width="464" height="80" rx="12" fill="#edf8f1" stroke="#29804f" stroke-width="1.5"/>
+<text x="48" y="404" font-size="22" fill="#29804f" font-weight="700" text-anchor="start">Вариант допустим</text>
+<text x="48" y="436" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Сравниваем его с другими назначениями.</text>
+<rect x="548" y="370" width="464" height="80" rx="12" fill="#fff1ef" stroke="#ba493e" stroke-width="1.5"/>
+<text x="568" y="404" font-size="22" fill="#ba493e" font-weight="700" text-anchor="start">Нужен другой вариант</text>
+<text x="568" y="436" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Показываем причину и продолжаем поиск.</text>
+</g>
+</svg>

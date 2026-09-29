@@ -1,0 +1,33 @@
+{
+  "name": "@wayfinder/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "build": "vue-tsc -b && vite build",
+    "typecheck": "vue-tsc -b",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource-variable/onest": "^5.3.1",
+    "@internationalized/date": "^3.12.4",
+    "@wayfinder/dataset": "workspace:*",
+    "@wayfinder/planner": "workspace:*",
+    "leaflet": "^1.9.4",
+    "pinia": "^3.0.3",
+    "reka-ui": "^2.5.0",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.21",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "jsdom": "^27.0.0",
+    "sass": "^1.93.2",
+    "typescript": "^6.0.3",
+    "vite": "^7.1.9",
+    "vitest": "^5.0.1",
+    "vue-tsc": "^3.1.1"
+  }
+}

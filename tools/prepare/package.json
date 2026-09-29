@@ -1,0 +1,22 @@
+{
+  "name": "@wayfinder/prepare",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "benchmark": "tsx src/benchmark.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "datasets": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "@wayfinder/dataset": "workspace:*",
+    "@wayfinder/planner": "workspace:*",
+    "evlog": "^2.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.1"
+  }
+}

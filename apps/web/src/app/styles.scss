@@ -1,0 +1,549 @@
+@use '../shared/ui/mixins' as *;
+@use './theme';
+@use './app-onboarding';
+@use '../shared/ui/controls';
+@use '../modules/planning/views/dashboard/planning-dashboard';
+@use '../modules/planning/views/dashboard/planning-schedule';
+@use '../modules/planning/views/dashboard/planning-map';
+
+@property --brand-hatch-pitch {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 4px;
+}
+
+@property --brand-hatch-phase {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+:root {
+  color: var(--color-text);
+  font-size: 16px;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  background: var(--color-canvas);
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  scrollbar-gutter: stable;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar) transparent;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-size: var(--text-md);
+}
+
+button,
+select,
+input {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h3,
+h4 {
+  font-weight: 600;
+  font-size: var(--text-md);
+  line-height: 1.35;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration-color: currentcolor;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: var(--space-20);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+
+  @include md {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  height: 100vh;
+  padding: var(--space-16) var(--space-12);
+  overflow-y: auto;
+  background: var(--color-sidebar);
+  border-right: 1px solid var(--color-border);
+
+  @include md {
+    position: static;
+    flex-flow: row wrap;
+    gap: var(--space-12);
+    height: auto;
+    padding: var(--space-12) var(--space-16);
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__brand {
+    display: block;
+    padding: var(--space-4) var(--space-8);
+    text-decoration: none;
+  }
+
+  &__wordmark {
+    display: block;
+    width: 138px;
+    height: auto;
+    color: var(--color-brand-way);
+  }
+
+  &__font-text {
+    font-weight: 450;
+    font-size: 26px;
+    font-family: var(--font-sans);
+    letter-spacing: -0.6px;
+    fill: currentcolor;
+  }
+
+  &__word-part {
+    &--joined {
+      transform: translateX(-3px);
+    }
+
+    &--overlap {
+      transform: translateX(-5px);
+    }
+  }
+
+  &__route-trace {
+    opacity: 0;
+
+    // Период длиннее всего прохода: следующий штрих не появляется в начале пути.
+    stroke-dasharray: 8 192;
+
+    @media (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:focus-visible & {
+        animation: brand-route-travel var(--route-duration) var(--route-ease, linear) both;
+        animation-delay: var(--route-delay, 0ms);
+      }
+    }
+
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:hover & {
+        animation: brand-route-travel var(--route-duration) var(--route-ease, linear) both;
+        animation-delay: var(--route-delay, 0ms);
+      }
+    }
+
+    &--ay {
+      --route-duration: 1300ms;
+      --route-delay: 650ms;
+    }
+
+    &--journey {
+      --route-duration: 1300ms;
+
+      // Разгон к вершине W; перелёт и финальный вход в точку сохраняют темп.
+      --route-ease: linear(
+        0,
+        0.12 20%,
+        0.34 40%,
+        0.53 50%,
+        0.65 61%,
+        0.78 72%,
+        0.87 79%,
+        0.96 92%,
+        1
+      );
+    }
+  }
+
+  &__route-stop {
+    @media (prefers-reduced-motion: no-preference) {
+      &--arrived {
+        animation: brand-route-arrive 400ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+    }
+  }
+
+  &__comet-reflection {
+    opacity: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:focus-visible & {
+        animation: brand-comet-reflection 400ms linear 640ms both;
+      }
+    }
+
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:hover & {
+        animation: brand-comet-reflection 400ms linear 640ms both;
+      }
+    }
+  }
+
+  &__route-slot {
+    transform-origin: left center;
+    transform-box: fill-box;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:focus-visible & {
+        transform: var(--slot-optimized);
+      }
+    }
+
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:hover & {
+        transform: var(--slot-optimized);
+      }
+    }
+
+    &--travel {
+      --slot-optimized: translateX(1px);
+    }
+
+    &--work {
+      --slot-optimized: translateX(-6px);
+    }
+  }
+
+  &__hatching-flow {
+    transition: --brand-hatch-pitch 260ms ease;
+
+    // Фаза измеряется в долях шага: изменение ширины не сбрасывает движение.
+    stroke-dasharray: calc(var(--brand-hatch-pitch) * 0.375) calc(var(--brand-hatch-pitch) * 0.625);
+    stroke-dashoffset: calc(var(--brand-hatch-phase) * var(--brand-hatch-pitch) * -1);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: brand-hatching-flow 720ms linear infinite;
+
+      .app-sidebar__brand:focus-visible & {
+        --brand-hatch-pitch: 5.4px;
+      }
+    }
+
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .app-sidebar__brand:hover & {
+        --brand-hatch-pitch: 5.4px;
+      }
+    }
+  }
+
+  &__tagline {
+    font-weight: 450;
+    font-size: 12.5px;
+    font-family: var(--font-sans);
+    fill: var(--color-text-subtle);
+  }
+
+  &__section {
+    display: grid;
+    gap: var(--space-6);
+
+    @include md {
+      width: 100%;
+    }
+  }
+
+  &__caption {
+    padding: 0 var(--space-12);
+    color: var(--color-text-subtle);
+    font-weight: 500;
+    font-size: var(--text-xs);
+  }
+
+  &__screens {
+    @include md {
+      margin-left: auto;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    gap: var(--space-12);
+    margin-top: auto;
+    padding: 0 var(--space-4);
+
+    @include md {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  &__state {
+    @include caption;
+
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+    padding: 0 var(--space-8);
+
+    &:before {
+      width: 6px;
+      height: 6px;
+      background: var(--color-success);
+      border-radius: 50%;
+      content: '';
+    }
+
+    @include md {
+      display: none;
+    }
+
+    &--busy:before {
+      background: var(--color-warning);
+    }
+  }
+
+  &__theme {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.app-main {
+  min-width: 0;
+}
+
+.app-banner {
+  margin: var(--space-16) var(--space-24) 0;
+  padding: var(--space-12) var(--space-16);
+  color: var(--color-warning);
+  font-size: var(--text-sm);
+  background: var(--color-warning-soft);
+  border-radius: var(--radius-md);
+
+  &--error {
+    color: var(--color-danger);
+    background: var(--color-danger-soft);
+  }
+
+  @include md {
+    margin-inline: var(--space-16);
+  }
+}
+
+.app-loading {
+  display: grid;
+  min-height: 100vh;
+  color: var(--color-text-muted);
+  place-items: center;
+}
+
+.leaflet-container {
+  font: inherit;
+}
+
+.leaflet-tooltip {
+  padding: var(--space-6) var(--space-12);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  background: var(--color-glass-strong);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-popover);
+  backdrop-filter: var(--blur);
+
+  &:before {
+    display: none;
+  }
+}
+
+.leaflet-container .leaflet-control-attribution {
+  @include glass;
+
+  padding: var(--space-2) var(--space-8);
+  color: var(--color-text-subtle);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm) 0 0;
+
+  a {
+    color: var(--color-text-muted);
+  }
+}
+
+// Непрозрачная тёмно-серая маска только на декоративном значке атрибуции.
+.leaflet-attribution-flag {
+  background: var(--color-attribution-mask);
+
+  path {
+    fill: var(--color-attribution-mask);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes brand-route-travel {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 8;
+  }
+
+  12%,
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes brand-comet-reflection {
+  0% {
+    transform: translateX(29px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  75% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateX(63px);
+    opacity: 0;
+  }
+}
+
+@keyframes brand-hatching-flow {
+  to {
+    --brand-hatch-phase: 1;
+  }
+}
+
+@keyframes brand-route-arrive {
+  0%,
+  100% {
+    r: 1.7px;
+  }
+
+  45% {
+    r: 2.38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  :before,
+  :after {
+    transition-duration: 0s !important;
+  }
+}
+
+@media print {
+  :root {
+    color: #000;
+    background: #fff;
+  }
+
+  body:has(.crew-briefing) {
+    .app-sidebar,
+    .workspace__topbar,
+    .app-banner,
+    .workspace__body > :not(.crew-briefing),
+    .crew-briefing__actions {
+      display: none !important;
+    }
+
+    .crew-briefing__crews {
+      max-height: none;
+      overflow: visible;
+    }
+
+    .workspace,
+    .workspace__body,
+    .crew-briefing {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+  }
+}

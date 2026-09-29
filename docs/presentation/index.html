@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Wayfinder — презентация</title>
+    <link
+      rel="stylesheet"
+      href="deck.css"
+    />
+  </head>
+  <body>
+    <!-- 1 -->
+    <section class="slide cover">
+      <h1
+        class="cover__brand"
+        aria-label="WayFinder — Выезды инженеров"
+      >
+        <!-- Копия apps/web/src/app/app-brand.vue: при изменении логотипа обновлять вместе. -->
+        <svg
+          class="wordmark"
+          data-play
+          viewBox="0 0 160 48"
+          fill="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <defs>
+            <radialGradient id="wm-comet-light">
+              <stop offset="0" stop-color="var(--color-brand-highlight)" stop-opacity="0.8" />
+              <stop offset="1" stop-color="var(--color-brand-highlight)" stop-opacity="0" />
+            </radialGradient>
+            <clipPath id="wm-travel-hatching"><path d="M125 36H174V42H122Z" /></clipPath>
+            <clipPath id="wm-schedule-strip"><rect x="112" y="36" width="42" height="6" rx="1" /></clipPath>
+            <clipPath id="wm-flight"><rect x="28" y="0" width="38" height="12" /></clipPath>
+            <filter id="wm-f-shadow" x="-40%" y="-25%" width="160%" height="150%" color-interpolation-filters="sRGB">
+              <feMorphology in="SourceAlpha" operator="dilate" radius="0.8" />
+              <feGaussianBlur stdDeviation="1.4" />
+              <feOffset dx="-4" dy="0.5" result="shadow" />
+              <feFlood flood-color="var(--color-brand-shadow)" flood-opacity="0.5" />
+              <feComposite in2="shadow" operator="in" />
+              <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+            <filter id="wm-halo" x="-15%" y="-25%" width="130%" height="150%" color-interpolation-filters="sRGB">
+              <feMorphology in="SourceAlpha" operator="dilate" radius="1" />
+              <feGaussianBlur stdDeviation="1.1" result="halo" />
+              <feFlood flood-color="var(--color-sidebar)" />
+              <feComposite in2="halo" operator="in" />
+              <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+            </filter>
+            <text id="wm-way" class="wordmark__font-text" x="3" y="27" textLength="57" lengthAdjust="spacingAndGlyphs">Way</text>
+            <g id="wm-fi">
+              <path d="M64.55 27V6.55H81.6L80.1 9.45H67.45V15.55H79V18.45H67.45V27Z" fill="currentColor" />
+              <path d="M85 14v13" stroke="currentColor" stroke-width="2.9" stroke-linecap="butt" />
+            </g>
+            <text id="wm-n" class="wordmark__font-text" x="90" y="27" textLength="16" lengthAdjust="spacingAndGlyphs">n</text>
+            <g id="wm-der">
+              <text class="wordmark__font-text" x="107" y="27" textLength="16" lengthAdjust="spacingAndGlyphs">d</text>
+              <text class="wordmark__font-text" x="123" y="27" textLength="31" lengthAdjust="spacingAndGlyphs">er</text>
+            </g>
+            <mask id="wm-way-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="160" height="40">
+              <use href="#wm-way" color="white" />
+            </mask>
+          </defs>
+          <g class="wordmark__part" style="color: var(--color-brand-way)">
+            <use href="#wm-way" />
+            <g mask="url(#wm-way-mask)">
+              <path d="M20 8H30L26 17L23 18L20 27H16L20 15L23 13Z" fill="var(--color-brand-der)" />
+              <path d="M3 17L17 14M4 22L16 19" stroke="var(--color-sidebar)" stroke-width="1.5" />
+            </g>
+            <circle cx="5" cy="9" r="1.8" fill="var(--color-sidebar)" stroke="currentColor" stroke-width="1.2" />
+            <g mask="url(#wm-way-mask)" stroke="var(--color-sidebar)" stroke-width="0.9" stroke-linecap="round">
+              <path class="wordmark__trace wordmark__trace--ay" d="M44 15v12m0-6a6 6 0 1 0-12 0 6 6 0 0 0 12 0M48 15l6 12m6-12-8 18q-1 2-4 2" pathLength="100" />
+            </g>
+          </g>
+          <g class="wordmark__part wordmark__part--joined" style="color: var(--color-brand-fi)">
+            <use href="#wm-fi" filter="url(#wm-f-shadow)" />
+            <path d="M73 5l-2 6m7-6-2 6M82 22l6-2" stroke="var(--color-sidebar)" stroke-width="1.4" />
+            <circle class="wordmark__stop" cx="85" cy="8" r="1.7" fill="currentColor" />
+          </g>
+          <g class="wordmark__part wordmark__part--joined" style="color: var(--color-brand-fi)">
+            <use href="#wm-n" />
+          </g>
+          <g class="wordmark__part wordmark__part--joined wordmark__part--overlap" style="color: var(--color-brand-der)" filter="url(#wm-halo)">
+            <use href="#wm-der" />
+          </g>
+          <g mask="url(#wm-way-mask)">
+            <ellipse class="wordmark__comet" cx="0" cy="18" rx="9" ry="16" fill="url(#wm-comet-light)" />
+          </g>
+          <!-- Светлый участок перекрывает тёмный штрих только на перелёте. -->
+          <g stroke-linecap="round" stroke-linejoin="round">
+            <path class="wordmark__trace wordmark__trace--journey" d="M5 9 9 27 16 8 23 27 28 8C31 -2 48 8 66 8H82" pathLength="100" stroke="var(--color-sidebar)" stroke-width="0.9" />
+            <path class="wordmark__trace wordmark__trace--journey wordmark__trace--light" d="M5 9 9 27 16 8 23 27 28 8C31 -2 48 8 66 8H82" clip-path="url(#wm-flight)" pathLength="100" stroke="var(--color-text)" stroke-width="1.8" />
+          </g>
+          <g clip-path="url(#wm-schedule-strip)">
+            <rect x="112" y="36" width="42" height="6" fill="var(--color-brand-fi)" />
+            <g class="wordmark__slot wordmark__slot--travel">
+              <path d="M125 36H174V42H122Z" fill="currentColor" />
+              <g clip-path="url(#wm-travel-hatching)">
+                <path class="wordmark__hatching" d="M110 39H190" transform="matrix(1 0 -0.5 1 19.5 0)" stroke="var(--color-sidebar)" stroke-width="6" />
+              </g>
+            </g>
+            <path class="wordmark__slot wordmark__slot--work" d="M147 36H174V42H144Z" fill="var(--color-brand-der)" />
+          </g>
+          <text class="wordmark__tagline" x="3" y="43" textLength="102" lengthAdjust="spacing">Выезды инженеров</text>
+        </svg>
+      </h1>
+      <p class="cover__subtitle">Кто, куда и во сколько едет</p>
+      <p class="cover__meta">
+        Планировщик выездных инженеров. Кейс «Билайн Бизнес»: распределение заявок и маршруты с
+        учётом квалификации, окон, транспорта и оборудования.
+      </p>
+      <img
+        class="cover__shot"
+        src="assets/app-plan.webp"
+        alt="Интерфейс Wayfinder: маршруты бригад Востока на карте"
+      />
+    </section>
+
+    <!-- 2 -->
+    <section class="slide">
+      <p class="kicker">Задача</p>
+      <h2 class="title">Один рабочий день: 205 заявок, три территории, 35 бригад</h2>
+      <dl
+        class="facts lift"
+        data-stagger
+      >
+        <dt>Квалификация</dt>
+        <dd>Без нужного навыка назначение запрещено: авария, подключение, локальные работы</dd>
+        <dt>Транспорт</dt>
+        <dd>Автомобиль, велосипед, пешком, общественный; часть работ требует автомобиль</dd>
+        <dt>Время</dt>
+        <dd>Окно заявки, смена бригады, переезды по дорожному графу своего транспорта</dd>
+        <dt>Оборудование</dt>
+        <dd>Выдаётся утром на весь день; без комплекта бригада заявку не получает</dd>
+      </dl>
+      <div class="priority">
+        <span class="priority__item priority__item--first">Авария · 100 мин</span>
+        <span class="priority__arrow">→</span>
+        <span class="priority__item">Подключение</span>
+        <span class="priority__arrow">→</span>
+        <span class="priority__item">Ремонт / Дозаказ</span>
+        <span class="note">&nbsp;&nbsp;порядок при нехватке ресурсов</span>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide">
+      <p class="kicker">Данные</p>
+      <h2 class="title">Всё тяжёлое — заранее. Расчёт — в браузере, без сети</h2>
+      <div
+        class="chain lift"
+        data-stagger
+        style="--steps: 4"
+      >
+        <div class="chain__step">
+          <p class="chain__index">1</p>
+          <p class="chain__name">Исходные CSV</p>
+          <p class="chain__text">Не редактируются. Контрольные распределения трёх территорий</p>
+        </div>
+        <div class="chain__step">
+          <p class="chain__index">2</p>
+          <p class="chain__name">Нормализация и геокодирование</p>
+          <p class="chain__text">Адреса приводятся к одному виду, координаты кэшируются</p>
+        </div>
+        <div class="chain__step">
+          <p class="chain__index">3</p>
+          <p class="chain__name">Матрицы OSRM</p>
+          <p class="chain__text">Три графа: автомобиль, велосипед, пешком. Геометрия маршрутов</p>
+        </div>
+        <div class="chain__step">
+          <p class="chain__index">4</p>
+          <p class="chain__name">Prepared-наборы</p>
+          <p class="chain__text">Версия формата и SHA-256 источников. Проверки — без сети</p>
+        </div>
+      </div>
+      <p class="lead">
+        Навыки, запасы оборудования и длительности работ — модельные допущения команды. Они видны в
+        интерфейсе рядом с источником: уточнение организаторов или решение команды.
+      </p>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide">
+      <p class="kicker">Алгоритм</p>
+      <h2 class="title">Сначала охват по приоритетам, затем меньше бригад, затем пробег</h2>
+      <div class="chain lift"
+        data-stagger>
+        <div class="chain__step">
+          <p class="chain__index">1</p>
+          <p class="chain__name">Допустимая вставка</p>
+          <p class="chain__text">
+            Каждая заявка встаёт только туда, где сходятся навык, транспорт, окно, смена и
+            оборудование
+          </p>
+        </div>
+        <div class="chain__step">
+          <p class="chain__index">2</p>
+          <p class="chain__name">Локальный поиск</p>
+          <p class="chain__text">
+            Переносы и обмены между маршрутами с конечным бюджетом — миллион проверок кандидатов
+          </p>
+        </div>
+        <div class="chain__step">
+          <p class="chain__index">3</p>
+          <p class="chain__name">Независимый валидатор</p>
+          <p class="chain__text">
+            Заново пересчитывает расписание, ограничения и метрики перед публикацией плана
+          </p>
+        </div>
+      </div>
+      <p class="lead">
+        Базовый вариант из ТЗ: заявки по порядку поступления, первый подходящий инженер, визит в
+        конец маршрута. Улучшенный план сравнивается с ним той же целью. Глобальный оптимум не
+        обещаем — сохраняем лучший найденный допустимый план.
+      </p>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide">
+      <p class="kicker">Результат на исходном дне</p>
+      <h2 class="title">Все заявки назначены меньшим составом и с меньшим пробегом</h2>
+      <div
+        class="cols lift"
+        data-stagger
+        style="--cols: 3"
+      >
+        <div>
+          <p class="stat__value">
+            <span data-count="205" data-from="171">205</span> <span class="stat__from">/ 205</span>
+          </p>
+          <p class="stat__label">заявок назначено</p>
+          <p class="stat__hint">Базовый вариант оставляет 34 без исполнителя, из них 12 аварий</p>
+        </div>
+        <div>
+          <p class="stat__value">
+            <span class="stat__from">35 →</span> <span class="way" data-count="23" data-from="35">23</span>
+          </p>
+          <p class="stat__label">бригады задействованы</p>
+          <p class="stat__hint">Нижняя граница — 18: меньшим составом день не закрыть</p>
+        </div>
+        <div>
+          <p class="stat__value">
+            <span class="way"><span data-count="-45" data-from="0">−45</span>%</span>
+          </p>
+          <p class="stat__label">пробег: 2 198 → 1 219 км</p>
+          <p class="stat__hint">При этом улучшенный план обслуживает на 34 заявки больше</p>
+        </div>
+      </div>
+      <p class="note">
+        Сумма по трём территориям, отчёт <code>pnpm benchmark</code>. Сравнение с базовым алгоритмом ТЗ при модельных параметрах, а не измеренная экономия
+        относительно работы диспетчеров. Валидатор нарушений не нашёл.
+      </p>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide">
+      <p class="kicker">По территориям</p>
+      <h2 class="title">Каждая территория планируется отдельно</h2>
+      <div
+        class="bars lift"
+        data-stagger
+        data-play
+      >
+        <span class="bars__head">Территория</span>
+        <span class="bars__head">Бригады</span>
+        <span class="bars__head">Пробег, км</span>
+
+        <span class="bars__name bars__cell">Восток</span>
+        <div class="bars__cell">
+          <div
+            class="scale"
+            style="--row: 0"
+          >
+            <span class="scale__track"></span>
+            <span
+              class="scale__range"
+              style="--from: 47.1; --to: 94.1"
+            ></span>
+            <span
+              class="scale__mark scale__mark--bound"
+              style="--v: 23.5"
+            >6</span>
+            <span
+              class="scale__mark scale__mark--base"
+              data-n="12"
+              style="--v: 94.1"
+            >12</span>
+            <span
+              class="scale__mark scale__mark--improved"
+              data-n="8"
+              style="--v: 47.1"
+            >8</span>
+          </div>
+        </div>
+        <div class="bars__cell">
+          <div
+            class="bar"
+            data-km="340.9"
+            data-v="17.0"
+            style="--v: 17.0; --row: 0"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">340,9</span>
+          </div>
+          <div
+            class="bar bar--improved"
+            data-km="274.8"
+            data-v="13.7"
+            style="--v: 13.7; --row: 0"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">274,8</span>
+          </div>
+        </div>
+
+        <span class="bars__name bars__cell">Юго-восток</span>
+        <div class="bars__cell">
+          <div
+            class="scale"
+            style="--row: 1"
+          >
+            <span class="scale__track"></span>
+            <span
+              class="scale__range"
+              style="--from: 58.8; --to: 94.1"
+            ></span>
+            <span
+              class="scale__mark scale__mark--bound"
+              style="--v: 35.3"
+            >7</span>
+            <span
+              class="scale__mark scale__mark--base"
+              data-n="12"
+              style="--v: 94.1"
+            >12</span>
+            <span
+              class="scale__mark scale__mark--improved"
+              data-n="9"
+              style="--v: 58.8"
+            >9</span>
+          </div>
+        </div>
+        <div class="bars__cell">
+          <div
+            class="bar"
+            data-km="1471.7"
+            data-v="73.6"
+            style="--v: 73.6; --row: 1"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">1 471,7</span>
+          </div>
+          <div
+            class="bar bar--improved"
+            data-km="746.7"
+            data-v="37.3"
+            style="--v: 37.3; --row: 1"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">746,7</span>
+          </div>
+        </div>
+
+        <span class="bars__name bars__cell">Югоцентр</span>
+        <div class="bars__cell">
+          <div
+            class="scale"
+            style="--row: 2"
+          >
+            <span class="scale__track"></span>
+            <span
+              class="scale__range"
+              style="--from: 23.5; --to: 82.4"
+            ></span>
+            <span
+              class="scale__mark scale__mark--bound"
+              style="--v: 11.8"
+            >5</span>
+            <span
+              class="scale__mark scale__mark--base"
+              data-n="11"
+              style="--v: 82.4"
+            >11</span>
+            <span
+              class="scale__mark scale__mark--improved"
+              data-n="6"
+              style="--v: 23.5"
+            >6</span>
+          </div>
+        </div>
+        <div class="bars__cell">
+          <div
+            class="bar"
+            data-km="385.6"
+            data-v="19.3"
+            style="--v: 19.3; --row: 2"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">385,6</span>
+          </div>
+          <div
+            class="bar bar--improved"
+            data-km="197.5"
+            data-v="9.9"
+            style="--v: 9.9; --row: 2"
+          >
+            <span class="bar__fill"></span>
+            <span class="bar__value">197,5</span>
+          </div>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="legend__item">
+          <span class="legend__swatch"></span>
+          Базовый
+        </span>
+        <span class="legend__item">
+          <span class="legend__swatch legend__swatch--improved"></span>
+          Улучшенный
+        </span>
+        <span class="legend__item">
+          <span class="legend__swatch legend__swatch--bound"></span>
+          Нижняя граница: работа, кратчайшие переезды и окна против времени смен; может быть
+          недостижимой
+        </span>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide">
+      <p class="kicker">Восток на карте</p>
+      <h2 class="title">12 пересекающихся маршрутов против 8</h2>
+      <div class="compare lift">
+        <div class="compare__legend">
+          <p class="compare__side">
+            <span class="compare__name">Базовый</span>
+            56 назначено, 10 без исполнителя
+            <span class="compare__value">12 бригад · 340,9 км</span>
+          </p>
+          <p class="compare__side">
+            <span class="compare__name way">Улучшенный</span>
+            66 назначено, все заявки
+            <span class="compare__value">8 бригад · 274,8 км</span>
+          </p>
+          <p class="note">Потяните шторку или нажмите на карту</p>
+        </div>
+        <div
+          class="compare__frame interactive"
+          style="--x: 50%"
+        >
+          <img
+            class="compare__image"
+            src="assets/map-improved.webp"
+            alt="Улучшенный план Востока: 8 бригад, все заявки назначены"
+          />
+          <img
+            class="compare__image compare__image--before"
+            src="assets/map-baseline.webp"
+            alt="Базовый план Востока: 12 бригад, 10 заявок без назначения"
+          />
+          <span class="compare__handle"></span>
+          <span class="compare__tag">Базовый</span>
+          <span class="compare__tag compare__tag--after">Улучшенный</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide">
+      <p class="kicker">Объяснение назначения</p>
+      <h2 class="title">Почему эта заявка у этой бригады</h2>
+      <div
+        class="split"
+        style="grid-template-columns: 0.8fr 1.2fr; gap: 56px"
+      >
+        <div>
+          <p class="body">
+            Подключение на Бронницкой, 12 назначено бригаде Арташкин на
+            <span class="way">13:34–15:04</span>
+            — в окне 12:00–14:00.
+          </p>
+          <dl
+            class="facts"
+            style="margin-top: 40px; grid-template-columns: 220px 1fr; font-size: 24px"
+          >
+            <dt>Факты</dt>
+            <dd>Навык подходит, транспорт подходит, добавленный пробег 1,7 км</dd>
+            <dt>Альтернативы</dt>
+            <dd>Перенос к другой бригаде задействует ещё одну, сдвигает 2 визита и даёт +5,6 км</dd>
+            <dt>Маршрут</dt>
+            <dd>Путь к визиту и дальше по маршруту, время каждого переезда</dd>
+          </dl>
+          <p
+            class="note"
+            style="margin-top: 32px"
+          >
+            Объяснение — структурированная часть результата планировщика; текст формирует интерфейс.
+            Это сравнение переносов, а не доказательство оптимальности.
+          </p>
+        </div>
+        <img
+          class="shot"
+          src="assets/visit.webp"
+          alt="Карточка визита с фактами назначения и альтернативами"
+        />
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide">
+      <p class="kicker">Расписание</p>
+      <h2 class="title">Смена каждой бригады видна целиком</h2>
+      <p class="lead">
+        Работа, переезды и резерв на одной шкале. Выбор визита синхронизирован с картой.
+      </p>
+      <img
+        class="shot lift"
+        style="height: 580px; object-fit: cover; object-position: top"
+        src="assets/schedule.webp"
+        alt="Расписание бригад: блоки работ, переездов и резерва"
+      />
+    </section>
+
+    <!-- 10 -->
+    <section class="slide">
+      <p class="kicker">Перепланирование</p>
+      <h2 class="title">Авария в 13:30: кто её возьмёт и что сдвинется</h2>
+      <div
+        class="timeline lift"
+        data-play
+      >
+        <button
+          class="replay interactive"
+          type="button"
+        >
+          ↻ Повторить
+        </button>
+        <span
+          class="timeline__event"
+          style="--at: 50"
+        >
+          <span>13:30 авария</span>
+        </span>
+        <span class="timeline__label">
+          С комплектом
+          <small>до события</small>
+        </span>
+        <div class="timeline__lane">
+          <span
+            class="timeline__block timeline__block--done"
+            style="--from: 0; --len: 14.29"
+          >
+            выполнено
+          </span>
+          <span
+            class="timeline__block"
+            style="--from: 35.71; --len: 23.81"
+          >
+            ремонт 100 мин
+          </span>
+          <span
+            class="timeline__block timeline__block--client"
+            style="--from: 64.29; --len: 7.14"
+          >
+            клиент
+          </span>
+        </div>
+        <span class="timeline__label">
+          С комплектом
+          <small>после события</small>
+        </span>
+        <div class="timeline__lane">
+          <span
+            class="timeline__block timeline__block--done"
+            style="--from: 0; --len: 14.29"
+          >
+            выполнено
+          </span>
+          <span
+            class="timeline__block"
+            style="--from: 35.71; --len: 23.81"
+          >
+            начатая работа
+          </span>
+          <span
+            class="timeline__block timeline__block--urgent timeline__block--grow"
+            style="--from: 59.52; --len: 23.81"
+          >
+            авария 14:10–15:50
+          </span>
+          <span
+            class="timeline__block timeline__block--client timeline__block--move"
+            data-to="83.33"
+            style="--from: 83.33; --start: 64.29; --len: 7.14"
+          >
+            <span class="timeline__swap">
+              <span class="timeline__was">14:30</span>
+              <span class="timeline__now">15:50</span>
+            </span>
+          </span>
+        </div>
+        <span class="timeline__label">
+          Ближайшая
+          <small>без комплекта</small>
+        </span>
+        <div class="timeline__lane">
+          <span
+            class="timeline__block timeline__block--idle"
+            style="--from: 0; --len: 100"
+          >
+            Свободна и стоит у адреса, но аварию не получает: нет аварийного комплекта
+          </span>
+        </div>
+        <span></span>
+        <div class="timeline__axis">
+          <span
+            class="timeline__tick"
+            style="--at: 0"
+          >
+            10:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 14.29"
+          >
+            11:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 28.57"
+          >
+            12:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 42.86"
+          >
+            13:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 57.14"
+          >
+            14:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 71.43"
+          >
+            15:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 85.71"
+          >
+            16:00
+          </span>
+          <span
+            class="timeline__tick"
+            style="--at: 100"
+          >
+            17:00
+          </span>
+        </div>
+      </div>
+      <p class="lead">
+        Выполненное подтверждает диспетчер, начатая работа не прерывается. Авария начинается в окне
+        14:00–14:20, клиент переносится с 14:30 на <span class="way">15:50</span>. Затронута одна прежняя заявка. Учебный модельный день, отдельно от исходной выгрузки.
+      </p>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide">
+      <p class="kicker">После события</p>
+      <h2 class="title">Дифф и очередь для службы поддержки</h2>
+      <div
+        class="cols lift"
+        data-stagger
+        style="--cols: 2; gap: 40px; align-items: start"
+      >
+        <figure>
+          <img
+            class="shot"
+            src="assets/events.webp"
+            alt="Экран событий: изменения относительно плана до события и остаток комплектов"
+          />
+          <figcaption class="figure__caption">
+            Что изменилось и сколько аварийных комплектов осталось
+          </figcaption>
+        </figure>
+        <figure>
+          <img
+            class="shot"
+            src="assets/agreements.webp"
+            alt="Очередь согласований: новое время клиента требует подтверждения"
+          />
+          <figcaption class="figure__caption">
+            Сначала потерянные назначения, затем ближайшие визиты. Подтверждённое клиентом время
+            становится ограничением для следующих событий. Сообщения не отправляются автоматически.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide">
+      <p class="kicker">Стресс-проверки</p>
+      <h2 class="title">Шесть вариантов дня на каждой территории</h2>
+      <div class="lift">
+        <div
+          class="toggle interactive"
+          role="group"
+          aria-label="Вариант плана"
+        >
+          <button
+            class="toggle__option toggle__option--active"
+            type="button"
+            data-plan="opt"
+          >
+            Улучшенный
+          </button>
+          <button
+            class="toggle__option"
+            type="button"
+            data-plan="base"
+          >
+            Базовый
+          </button>
+        </div>
+        <table
+          class="matrix"
+          data-plan="opt"
+        >
+          <thead>
+            <tr>
+              <th></th>
+              <th>Исходный день</th>
+              <th>Переезды +20%</th>
+              <th>Работы +20%</th>
+              <th>Оба +20%</th>
+              <th>Ресурсы −1</th>
+              <th>Без одной бригады</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>Восток</th>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">8 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">56/66<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">8 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">56/66<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">9 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">51/66<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">9 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">49/66<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">8 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">56/66<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">66/66<span class="matrix__crew">8 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">53/66<span class="matrix__crew">11 бригад</span></span></td>
+          </tr>
+          <tr>
+            <th>Юго-восток</th>
+            <td><span class="matrix__v matrix__v--opt">83/83<span class="matrix__crew">9 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">64/83<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">83/83<span class="matrix__crew">10 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">61/83<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">83/83<span class="matrix__crew">11 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">58/83<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">83/83<span class="matrix__crew">12 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">58/83<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt matrix__v--short">79/83<span class="matrix__crew">9 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">64/83<span class="matrix__crew">12 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt matrix__v--short">80/83<span class="matrix__crew">10 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">59/83<span class="matrix__crew">11 бригад</span></span></td>
+          </tr>
+          <tr>
+            <th>Югоцентр</th>
+            <td><span class="matrix__v matrix__v--opt">56/56<span class="matrix__crew">6 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">51/56<span class="matrix__crew">11 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">56/56<span class="matrix__crew">6 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">47/56<span class="matrix__crew">11 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">56/56<span class="matrix__crew">7 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">46/56<span class="matrix__crew">11 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">56/56<span class="matrix__crew">7 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">42/56<span class="matrix__crew">11 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt">56/56<span class="matrix__crew">6 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">51/56<span class="matrix__crew">11 бригад</span></span></td>
+            <td><span class="matrix__v matrix__v--opt matrix__v--short">55/56<span class="matrix__crew">6 бригад</span></span><span class="matrix__v matrix__v--base matrix__v--short">46/56<span class="matrix__crew">10 бригад</span></span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        Базовый вариант во всех 18 случаях назначает меньше. Неназначенные заявки объяснены: на
+        Юго-востоке аварийным бригадам не хватает комплектов, на Югоцентре без исключённой бригады
+        не остаётся нужной квалификации. Все случаи входят в
+        <code>pnpm check</code>.
+      </p>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide">
+      <p class="kicker">Инструменты диспетчера</p>
+      <h2 class="title">Проверить план до того, как день пошёл не так</h2>
+      <div
+        class="cols lift"
+        data-stagger
+        style="--cols: 2; gap: 24px"
+      >
+        <div class="tile">
+          <p class="tile__name">Запас прочности</p>
+          <p class="tile__text">
+            До 12 проверочных аварий: три адреса и четыре времени. Видно назначение, сдвиги и потери
+            прежних заявок.
+          </p>
+          <p class="tile__limit">Сценарные проверки, не вероятность и не гарантия SLA</p>
+        </div>
+        <div class="tile">
+          <p class="tile__name">Утренние комплекты</p>
+          <p class="tile__text">
+            Подбор переноса аварийного комплекта между бригадами, который улучшает те же проверки и
+            сохраняет исходные назначения.
+          </p>
+          <p class="tile__limit">Применяется отдельным подтверждением выдачи до выезда</p>
+        </div>
+        <div class="tile">
+          <p class="tile__name">Последствия задержки</p>
+          <p class="tile__text">
+            +15, +30 или +60 минут к визиту: порядок сохраняется, видны сдвиги, выход за окно и
+            нарушение подтверждённого времени.
+          </p>
+        </div>
+        <div class="tile">
+          <p class="tile__name">Свои данные</p>
+          <p class="tile__text">
+            CSV или JSON с заявками и бригадами. Ошибки — по строкам; при ошибке прежний план
+            сохраняется.
+          </p>
+          <p class="tile__limit">Переезды к новым точкам явно помечены как приближённые</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide">
+      <p class="kicker">Инженерная часть</p>
+      <h2 class="title">Домен отдельно, проверки на каждом шаге</h2>
+      <div
+        class="cols lift"
+        data-stagger
+        style="--cols: 3"
+      >
+        <div>
+          <p class="stat__value">252</p>
+          <p class="stat__label">теста в 33 файлах</p>
+          <p class="stat__hint">Ограничения, валидатор, перепланирование, парсеры, интерфейс</p>
+        </div>
+        <div>
+          <p class="stat__value">0</p>
+          <p class="stat__label">сетевых запросов в расчёте</p>
+          <p class="stat__hint">Матрицы готовятся заранее, онлайн нужны только тайлы карты</p>
+        </div>
+        <div>
+          <p class="stat__value">
+            0,6–4
+            <span class="stat__from">с</span>
+          </p>
+          <p class="stat__label">оптимизация территории</p>
+          <p class="stat__hint">
+            Один запуск без прогрева, не SLA. Пакетные проверки — в Web Worker
+          </p>
+        </div>
+      </div>
+      <dl
+        class="facts"
+        style="grid-template-columns: 420px 1fr"
+      >
+        <dt><code>packages/planner</code></dt>
+        <dd>Чистый TypeScript: без Vue, DOM и Node API; доменные проверки не дублируются в UI</dd>
+        <dt><code>pnpm check</code></dt>
+        <dd>Типы, линтеры, формат, тесты, сборка, правила зависимостей между пакетами, knip</dd>
+        <dt><code>pnpm benchmark</code></dt>
+        <dd>JSON-отчёт: ревизия, SHA-256 наборов, метрики каждой бригады, результат валидатора</dd>
+      </dl>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide">
+      <p class="kicker">Границы прототипа</p>
+      <h2 class="title">Что модельное сейчас и что дальше</h2>
+      <div
+        class="limits lift"
+        data-stagger
+      >
+        <span class="limits__head">Сейчас</span>
+        <span class="limits__head">Следующий шаг</span>
+        <span>Навыки, запасы и часть нормативов — допущения команды</span>
+        <span>Калибровка на фактических данных</span>
+        <span>Общественный транспорт: пеший граф, 18 км/ч + 10 минут</span>
+        <span>Маршруты и расписания перевозчиков</span>
+        <span>Новые точки: расстояние × 1,3 и модельная скорость</span>
+        <span>Дорожные матрицы для новых адресов</span>
+        <span>Конечный поиск без доказательства оптимума</span>
+        <span>Замеры качества и времени на 500 заявках</span>
+        <span>История событий живёт в сессии, экспорт в JSON</span>
+        <span>Хранение и работа нескольких диспетчеров</span>
+      </div>
+      <p class="note">
+        Класс
+        <code>search-limit</code>
+        честно говорит: вариант не найден, но полнота поиска не доказана. Он отделён от доказуемой
+        несовместимости и полной проверки вставок.
+      </p>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide">
+      <p class="kicker">Запуск</p>
+      <h2 class="title">Две команды до работающего плана</h2>
+      <div
+        class="lift"
+        data-stagger
+      >
+        <div class="command">
+          <code>pnpm install --frozen-lockfile</code>
+          <span class="muted">Node.js 24 LTS (от 24.4.0), pnpm 11.15.0</span>
+        </div>
+        <div class="command">
+          <code>pnpm dev</code>
+          <span class="muted">http://127.0.0.1:5173 — Восток откроется и рассчитается сам</span>
+        </div>
+        <div class="command">
+          <code>pnpm check</code>
+          <span class="muted">все проверки, без сети</span>
+        </div>
+        <div class="command">
+          <code>pnpm benchmark</code>
+          <span class="muted">отчёт по трём территориям и стрессам</span>
+        </div>
+      </div>
+      <p class="body">
+        <a href="#">Сайт проекта</a> &nbsp;·&nbsp; <a href="https://github.com/hineoni/wayfinder_preview">Репозиторий</a>
+        <span class="muted">&nbsp;·&nbsp; README · документация и отчёт в docs/</span>
+      </p>
+    </section>
+
+    <script>
+      // Навигация: стрелки, пробел, PageUp/PageDown, Home/End, клик; F — полный экран.
+      // Анимации конечные: запускаются при входе на слайд и не крутятся в фоне.
+      const slides = [...document.querySelectorAll('.slide')]
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
+      const brand = document.createElement('span')
+      brand.className = 'slide__brand'
+      brand.textContent = 'Wayfinder'
+
+      slides.forEach((slide, index) => {
+        slide.dataset.page = `${index + 1} / ${slides.length}`
+        let order = 0
+        for (const child of [...slide.children]) {
+          const targets = child.hasAttribute('data-stagger') ? [...child.children] : [child]
+          for (const target of targets) {
+            target.classList.add('reveal')
+            target.style.setProperty('--i', String(order++))
+          }
+        }
+        if (index > 0) slide.append(brand.cloneNode(true))
+      })
+
+      const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
+
+      // Перезапуск CSS-анимаций контейнера: класс снимается и ставится после принудительного расчёта стилей.
+      const replay = (element) => {
+        element.classList.remove('play')
+        void element.getBoundingClientRect()
+        element.classList.add('play')
+      }
+
+      // Плавная смена числа с замедлением к концу; минус — типографский.
+      const countUp = (element) => {
+        const from = Number(element.dataset.from)
+        const to = Number(element.dataset.count)
+        const format = (value) => (value < 0 ? '−' : '') + Math.abs(value)
+        const start = performance.now() + 450
+        const step = (now) => {
+          const t = clamp((now - start) / 1200, 0, 1)
+          element.textContent = format(Math.round(from + (to - from) * (1 - (1 - t) ** 3)))
+          if (t < 1) requestAnimationFrame(step)
+        }
+        element.textContent = format(from)
+        requestAnimationFrame(step)
+      }
+
+      // Шторка сравнения: при входе проезжает от базового плана к середине, пока её не тронули.
+      const sweeps = new WeakMap()
+      const setCompare = (frame, x) => frame.style.setProperty('--x', `${x}%`)
+      const sweep = (frame) => {
+        const start = performance.now() + 700
+        const token = {}
+        sweeps.set(frame, token)
+        const step = (now) => {
+          if (sweeps.get(frame) !== token) return
+          const t = clamp((now - start) / 1400, 0, 1)
+          setCompare(frame, 97 - 47 * (1 - (1 - t) ** 3))
+          if (t < 1) requestAnimationFrame(step)
+        }
+        requestAnimationFrame(step)
+      }
+
+      // Территории: метки и полосы ведутся покадрово, чтобы число совпадало с положением.
+      // Шкала бригад линейная: 4 бригады — левый край, 12,5 — правый.
+      const easeOut = (t) => 1 - (1 - t) ** 3
+      const easeInOut = (t) => (t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2)
+      const km = new Intl.NumberFormat('ru-RU', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+      })
+      const crewPosition = (crews) => ((crews - 4) / 8.5) * 100
+      const animateTerritories = (root) => {
+        const tracks = []
+        root.querySelectorAll('.scale').forEach((scale, row) => {
+          const base = scale.querySelector('.scale__mark--base')
+          const improved = scale.querySelector('.scale__mark--improved')
+          const range = scale.querySelector('.scale__range')
+          const baseCrews = Number(base.dataset.n)
+          const improvedCrews = Number(improved.dataset.n)
+          const place = (mark, crews) => {
+            mark.style.setProperty('--v', String(crewPosition(crews)))
+            mark.textContent = String(Math.round(crews))
+          }
+          tracks.push({
+            delay: 250 + row * 150,
+            duration: 1200,
+            ease: easeOut,
+            apply: (p) => place(base, 4 + (baseCrews - 4) * p),
+          })
+          tracks.push({
+            delay: 1500 + row * 150,
+            duration: 1300,
+            ease: easeInOut,
+            apply: (p) => {
+              const crews = baseCrews + (improvedCrews - baseCrews) * p
+              place(improved, crews)
+              improved.style.opacity = p > 0 ? '' : '0'
+              range.style.setProperty('--from', String(crewPosition(crews)))
+            },
+          })
+        })
+        for (const bar of root.querySelectorAll('.bar')) {
+          const value = bar.querySelector('.bar__value')
+          const total = Number(bar.dataset.km)
+          const width = Number(bar.dataset.v)
+          const row = Number(bar.style.getPropertyValue('--row'))
+          tracks.push({
+            delay: (bar.classList.contains('bar--improved') ? 900 : 400) + row * 150,
+            duration: 1500,
+            ease: easeOut,
+            apply: (p) => {
+              bar.style.setProperty('--v', String(width * p))
+              value.textContent = km.format(total * p)
+            },
+          })
+        }
+        const start = performance.now()
+        const frame = (now) => {
+          let running = false
+          for (const track of tracks) {
+            const t = clamp((now - start - track.delay) / track.duration, 0, 1)
+            track.apply(track.ease(t))
+            if (t < 1) running = true
+          }
+          if (running) requestAnimationFrame(frame)
+        }
+        frame(start)
+      }
+
+      // Событие: авария разворачивается от 14:10; визит клиента заранее и мягко уступает
+      // место со своим замедлением, край аварии лишь не даёт блокам наложиться.
+      const animateEvent = (timeline) => {
+        const urgent = timeline.querySelector('.timeline__block--grow')
+        const client = timeline.querySelector('.timeline__block--move')
+        const from = Number(urgent.style.getPropertyValue('--from'))
+        const length = Number(urgent.style.getPropertyValue('--len'))
+        const rest = Number(client.style.getPropertyValue('--start'))
+        const target = Number(client.dataset.to)
+        const start = performance.now() + 550
+        let previous = rest
+        const frame = (now) => {
+          const elapsed = now - start
+          const p = easeInOut(clamp(elapsed / 950, 0, 1))
+          const glide = easeOut(clamp((elapsed - 200) / 800, 0, 1))
+          const edge = from + length * p
+          const left = Math.max(rest + (target - rest) * glide, edge)
+          urgent.style.clipPath = `inset(0 ${(1 - p) * 100}% 0 0 round 12px)`
+          urgent.style.filter = `blur(${(1 - p) * 10}px)`
+          urgent.style.opacity = String(0.2 + 0.8 * Math.min(1, p * 2))
+          client.style.setProperty('--from', String(left))
+          client.style.filter = `blur(${Math.min(2, (left - previous) * 2.5)}px)`
+          previous = left
+          if (elapsed < 1000) requestAnimationFrame(frame)
+          else {
+            urgent.style.filter = urgent.style.clipPath = urgent.style.opacity = ''
+            client.style.filter = ''
+          }
+        }
+        frame(performance.now())
+      }
+
+      const enter = (slide) => {
+        if (reducedMotion) return
+        slide.querySelectorAll('[data-play]').forEach(replay)
+        slide.querySelectorAll('[data-count]').forEach(countUp)
+        slide.querySelectorAll('.compare__frame').forEach(sweep)
+        slide.querySelectorAll('.bars').forEach(animateTerritories)
+        slide.querySelectorAll('.timeline').forEach(animateEvent)
+      }
+
+      let current = -1
+      const show = (index) => {
+        const next = clamp(index, 0, slides.length - 1)
+        if (next === current) return
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('slide--active', i === next)
+          slide.inert = i !== next
+        })
+        current = next
+        history.replaceState(null, '', `#${current + 1}`)
+        enter(slides[current])
+      }
+      const fit = () =>
+        document.documentElement.style.setProperty(
+          '--scale',
+          String(Math.min(innerWidth / 1920, innerHeight / 1080)),
+        )
+
+      // Логотип: как в приложении, маршрут повторяется при наведении, точка «прибывает» в конце.
+      const wordmark = document.querySelector('.wordmark')
+      const stop = wordmark.querySelector('.wordmark__stop')
+      wordmark.addEventListener('pointerenter', () => replay(wordmark))
+      wordmark
+        .querySelector('.wordmark__trace--light')
+        .addEventListener('animationend', () => stop.classList.add('wordmark__stop--arrived'))
+      stop.addEventListener('animationend', () => stop.classList.remove('wordmark__stop--arrived'))
+
+      for (const frame of document.querySelectorAll('.compare__frame')) {
+        const drag = (event) => {
+          const box = frame.getBoundingClientRect()
+          setCompare(frame, clamp(((event.clientX - box.left) / box.width) * 100, 0, 100))
+        }
+        frame.addEventListener('pointerdown', (event) => {
+          sweeps.delete(frame)
+          frame.setPointerCapture(event.pointerId)
+          drag(event)
+        })
+        frame.addEventListener('pointermove', (event) => {
+          if (frame.hasPointerCapture(event.pointerId)) drag(event)
+        })
+      }
+
+      for (const button of document.querySelectorAll('.replay'))
+        button.addEventListener('click', () => {
+          const timeline = button.closest('.timeline')
+          replay(timeline)
+          animateEvent(timeline)
+        })
+
+      for (const toggle of document.querySelectorAll('.toggle'))
+        toggle.addEventListener('click', (event) => {
+          const option = event.target.closest('[data-plan]')
+          if (!option) return
+          for (const item of toggle.querySelectorAll('[data-plan]'))
+            item.classList.toggle('toggle__option--active', item === option)
+          toggle.nextElementSibling.dataset.plan = option.dataset.plan
+        })
+
+      addEventListener('resize', fit)
+      addEventListener('keydown', (event) => {
+        if (event.target.closest?.('button') && [' ', 'Enter'].includes(event.key)) return
+        if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) show(current + 1)
+        else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) show(current - 1)
+        else if (event.key === 'Home') show(0)
+        else if (event.key === 'End') show(slides.length - 1)
+        else if (event.key === 'f') document.documentElement.requestFullscreen?.()
+        else return
+        event.preventDefault()
+      })
+      addEventListener('click', (event) => {
+        if (event.target.closest('.interactive, .cover__brand')) return
+        show(current + (event.clientX < innerWidth / 3 ? -1 : 1))
+      })
+      fit()
+      show(Number(location.hash.slice(1)) - 1 || 0)
+    </script>
+  </body>
+</html>

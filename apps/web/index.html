@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="theme-color"
+      content="#000000"
+    />
+    <title>Wayfinder — планирование выездов</title>
+    <script>
+      // Тема до первого кадра; дальше ею управляет shared/lib/theme.ts.
+      try {
+        const stored = localStorage.getItem('wayfinder-theme')
+        document.documentElement.dataset.theme = stored === 'light' ? 'light' : 'dark'
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      type="module"
+      src="/src/main.ts"
+    ></script>
+  </body>
+</html>

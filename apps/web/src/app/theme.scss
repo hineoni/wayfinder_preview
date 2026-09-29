@@ -1,0 +1,155 @@
+// Токены двух тем. Тема задаётся атрибутом `data-theme` на <html> (см. shared/lib/theme.ts);
+// компоненты используют только переменные, без прямых цветов.
+// Цвета статусов и акцента подобраны в OKLCH с одинаковой светлотой и насыщенностью,
+// поэтому различаются только оттенком и не спорят друг с другом. Светлая тема — отдельная
+// пастельная система: светлые заливки с тёмным текстом того же оттенка, а не цвета тёмной темы.
+// `--crew-fill-mix` — доля цвета бригады в заливке блоков расписания.
+
+:root {
+  // Штриховка резерва в расписании и на полосках бригад; цвет берётся из темы.
+  --wait-hatch: repeating-linear-gradient(135deg, var(--color-wait) 0 4px, transparent 4px 7px);
+  --color-brand-shadow: #000;
+  --color-tour-shade: rgb(0 0 0 / 0.68);
+  --color-attribution-mask: #252525;
+  --color-brand-highlight: #fff;
+  --font-sans: 'Onest Variable', 'Segoe UI', system-ui, sans-serif;
+  --text-2xs: 0.8125rem;
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.5rem;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 999px;
+  --control-height: 44px;
+  --control-height-sm: 40px;
+  --topbar-height: 80px;
+  --sidebar-width: 272px;
+  --blur: blur(18px) saturate(1.5);
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --z-sticky: 1000;
+  --z-popover: 1200;
+  --z-tooltip: 1300;
+}
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-canvas: #070709;
+  --color-sidebar: #0b0b0d;
+  --color-surface: #0f0f12;
+  --color-surface-solid: #0f0f12;
+  --color-surface-strong: rgb(255 255 255 / 0.06);
+  --color-surface-hover: rgb(255 255 255 / 0.06);
+  --color-surface-active: rgb(255 255 255 / 0.1);
+  --color-glass: rgb(14 14 17 / 0.72);
+  --color-glass-strong: rgb(20 20 24 / 0.86);
+  --color-sunken: rgb(255 255 255 / 0.03);
+  --color-border: rgb(255 255 255 / 0.06);
+  --color-border-strong: rgb(255 255 255 / 0.12);
+  --color-text: #e7e8ea;
+  --color-text-muted: #a4a4a7;
+  --color-text-subtle: #6d6d71;
+  --color-accent: #b9bffb;
+  --color-accent-hover: #cad0ff;
+  --color-on-accent: #16163a;
+  --color-accent-text: #b8befe;
+  --color-accent-soft: rgb(185 191 251 / 0.12);
+  --color-focus: #b9bffb;
+  --color-success: #95d6ab;
+  --color-success-soft: rgb(149 214 171 / 0.1);
+  --color-danger: #f9adaa;
+  --color-danger-soft: rgb(249 173 170 / 0.1);
+  --color-warning: #eaba83;
+  --color-warning-soft: rgb(234 186 131 / 0.1);
+  --color-brand-way: var(--color-accent-text);
+  --color-brand-fi: var(--color-warning);
+  --color-brand-der: var(--color-success);
+  --color-info: #adc2ff;
+  --color-info-soft: rgb(173 194 255 / 0.1);
+  --color-travel: rgb(173 194 255 / 0.16);
+  --color-wait: rgb(255 255 255 / 0.08);
+  --color-off: rgb(255 255 255 / 0.02);
+  --color-scrollbar: rgb(255 255 255 / 0.14);
+  --shadow-popover: 0 18px 48px rgb(0 0 0 / 0.6);
+  --shadow-float: 0 8px 28px rgb(0 0 0 / 0.45);
+  --map-tiles-filter: invert(1) hue-rotate(180deg) grayscale(1) brightness(0.62) contrast(0.95);
+  --map-pin-fill: #111114;
+  --map-pin-text: #e7e8ea;
+  --map-pin-selected-text: #111114;
+  --crew-fill-mix: 24%;
+  --crew-border-mix: 45%;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  // Тень «F» в светлой теме — вырез цветом фона: тёмная тень читается грязным пятном.
+  // Лого светлее текстовых статусов: оно декоративное, а не несёт смысл цветом.
+  --color-brand-shadow: var(--color-sidebar);
+  --color-brand-way: #6b93e6;
+  --color-brand-fi: #e8a74e;
+  --color-brand-der: #4dba74;
+  --color-canvas: #f4f5f9;
+  --color-sidebar: #eff0f4;
+  --color-surface: #fff;
+  --color-surface-solid: #fff;
+  --color-surface-strong: #fff;
+  --color-surface-hover: rgb(33 33 37 / 0.04);
+  --color-surface-active: rgb(33 33 37 / 0.07);
+  --color-glass: rgb(255 255 255 / 0.74);
+  --color-glass-strong: rgb(255 255 255 / 0.9);
+  --color-sunken: #f7f8fb;
+  --color-border: rgb(33 33 37 / 0.07);
+  --color-border-strong: rgb(33 33 37 / 0.13);
+  --color-text: #2a2b33;
+  --color-text-muted: #666874;
+  --color-text-subtle: #9496a2;
+  --color-accent: #d1dff2;
+  --color-accent-hover: #c2d3e8;
+  --color-on-accent: #33475f;
+  --color-accent-text: #4c6585;
+  --color-accent-soft: #dce6f4;
+  --color-focus: #9fb6d3;
+  --color-success: #476e54;
+  --color-success-soft: #e5f5ea;
+  --color-danger: #825555;
+  --color-danger-soft: #ffebea;
+  --color-warning: #775e3b;
+  --color-warning-soft: #f9eee0;
+  --color-info: #426882;
+  --color-info-soft: #e4f3fe;
+  --color-travel: #e8f2fb;
+  --color-wait: rgb(33 33 37 / 0.06);
+  --color-off: rgb(33 33 37 / 0.025);
+  --color-scrollbar: rgb(33 33 37 / 0.16);
+  --shadow-popover: 0 18px 48px rgb(40 42 70 / 0.14);
+  --shadow-float: 0 8px 28px rgb(40 42 70 / 0.1);
+
+  // Контраст до яркости: фон тайлов уходит почти в белый, улицы и подписи остаются мягкими.
+  --map-tiles-filter: grayscale(1) contrast(0.72) brightness(1.18);
+  --map-pin-fill: #fff;
+  --map-pin-text: #212125;
+  --map-pin-selected-text: #212125;
+  --crew-fill-mix: 100%;
+  --crew-border-mix: 55%;
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "oxc", "typescript", "unicorn", "vitest", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "import/no-cycle": "error",
+    "no-console": [
+      "warn",
+      {
+        "allow": ["error"]
+      }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
+      }
+    ],
+    "unicorn/require-module-specifiers": "off"
+  },
+  "env": {
+    "builtin": true,
+    "es2026": true
+  },
+  "options": {
+    "typeAware": true
+  },
+  "ignorePatterns": [
+    "*.d.ts",
+    "dist/**/*",
+    ".tsbuild/**/*",
+    "node_modules/**/*",
+    "datasets/**/*",
+    "tools/arch-check/fixtures/**/*"
+  ],
+  "overrides": [
+    {
+      "files": ["tools/prepare/**"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": [".dependency-cruiser.cjs"],
+      "rules": {
+        "no-useless-escape": "off"
+      }
+    },
+    {
+      "files": ["tools/**", "**/test/**"],
+      "rules": {
+        "typescript/no-unsafe-type-assertion": "off",
+        "no-await-in-loop": "off"
+      }
+    }
+  ]
+}

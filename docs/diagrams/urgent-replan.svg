@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="410" viewBox="0 0 1040 410" role="img" aria-labelledby="title desc">
+<title id="title">Авария меняет будущий визит</title><desc id="desc">До события работа идёт с 12:30 до 14:10, клиентский визит с 14:30 до 15:00. После аварии: прежняя работа сохраняется, авария занимает 14:10–15:50, клиентский визит переносится на 15:50–16:20.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a97ab"/></marker></defs>
+<rect width="1040" height="410" rx="18" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+<text x="28" y="40" font-size="26" fill="#172033" font-weight="700" text-anchor="start">Авария в 13:30: что меняется в расписании</text>
+<text x="28" y="73" font-size="21" fill="#526079" font-weight="400" text-anchor="start">Бригада с комплектом. Все работы — в одном здании.</text>
+<text x="220.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">12:30</text>
+<line x1="220.0" y1="128" x2="220.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="316.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">13:00</text>
+<line x1="316.0" y1="128" x2="316.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="412.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">13:30</text>
+<line x1="412.0" y1="128" x2="412.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="508.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">14:00</text>
+<line x1="508.0" y1="128" x2="508.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="604.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">14:30</text>
+<line x1="604.0" y1="128" x2="604.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="700.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">15:00</text>
+<line x1="700.0" y1="128" x2="700.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="796.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">15:30</text>
+<line x1="796.0" y1="128" x2="796.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="892.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">16:00</text>
+<line x1="892.0" y1="128" x2="892.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="988.0" y="118" font-size="18" fill="#526079" font-weight="400" text-anchor="middle">16:30</text>
+<line x1="988.0" y1="128" x2="988.0" y2="288" stroke="#e2e7ee" stroke-width="1.5"/>
+<text x="28" y="174" font-size="22" fill="#172033" font-weight="700" text-anchor="start">До аварии</text>
+<text x="28" y="260" font-size="22" fill="#172033" font-weight="700" text-anchor="start">После аварии</text>
+<rect x="220.0" y="142" width="320.0" height="52" rx="8" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="380.0" y="174" font-size="20" fill="#2d62b6" font-weight="700" text-anchor="middle">Текущая работа</text>
+<rect x="604.0" y="142" width="96.0" height="52" rx="8" fill="#edf8f1" stroke="#29804f" stroke-width="1.5"/>
+<text x="652.0" y="174" font-size="20" fill="#29804f" font-weight="700" text-anchor="middle">Клиент</text>
+<rect x="220.0" y="228" width="320.0" height="52" rx="8" fill="#eff6ff" stroke="#2d62b6" stroke-width="1.5"/>
+<text x="380.0" y="260" font-size="20" fill="#2d62b6" font-weight="700" text-anchor="middle">Работа сохраняется</text>
+<rect x="540.0" y="228" width="320.0" height="52" rx="8" fill="#fff1ef" stroke="#ba493e" stroke-width="1.5"/>
+<text x="700.0" y="260" font-size="20" fill="#ba493e" font-weight="700" text-anchor="middle">Авария · 100 минут</text>
+<rect x="860.0" y="228" width="96.0" height="52" rx="8" fill="#edf8f1" stroke="#29804f" stroke-width="1.5"/>
+<text x="908.0" y="260" font-size="20" fill="#29804f" font-weight="700" text-anchor="middle">Клиент</text>
+<line x1="412.0" y1="126" x2="412.0" y2="286" stroke="#ba493e" stroke-width="1.5" stroke-dasharray="5 5"/>
+<rect x="28" y="310" width="984" height="72" rx="12" fill="#f3efff" stroke="none" stroke-width="1.5"/>
+<text x="48" y="341" font-size="23" fill="#7552b3" font-weight="700" text-anchor="start">Визит клиента: 14:30 → 15:50</text>
+<text x="48" y="368" font-size="20" fill="#526079" font-weight="400" text-anchor="start">Сдвиг на 80 минут. Свободная бригада без комплекта не может принять аварию.</text>
+</g>
+</svg>
